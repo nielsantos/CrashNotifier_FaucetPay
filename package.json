@@ -1,0 +1,25 @@
+{
+    "name": "crashnotifier_faucetpay",
+    "version": "1.0.0",
+    "description": "Automated application that will notify the probability of winning at a given Crash Point.",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nielsantos/CrashNotifier_FaucetPay.git"
+    },
+    "author": "Daniel S.",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/nielsantos/CrashNotifier_FaucetPay/issues"
+    },
+    "homepage": "https://github.com/nielsantos/CrashNotifier_FaucetPay#readme",
+    "dependencies": {
+        "dotenv": "^16.0.1",
+        "puppeteer": "^14.1.1",
+        "telegraf": "^4.8.2"
+    }
+}
