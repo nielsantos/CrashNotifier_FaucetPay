@@ -1,22 +1,13 @@
 /**
  * https://api.telegram.org/bot${process.env.TOKEN_BOT_TELEGRAM}/getUpdates
  */
-import { Telegraf } from "telegraf";
+import { Telegraf, Markup } from "telegraf";
 
 const id_chats = [1385277284];
 const bot = new Telegraf(process.env.TOKEN_BOT_TELEGRAM);
 export const DIST_REQ = 15;
 
-export function sendMessage(array_filtered) {
-    //create levels of opportunity
-    //new, golden, legendary, unmissable, unbeliveble
-    let message = `🔹🔷🔵     <b>NEW CHANCE</b>     🔵🔷🔹\n`;
-    for (const element of array_filtered) {
-        let prob = (1 / (element.round_max - element.dist_temp)) * 100;
-        message += `\n✔️ Crash: <b>${element.crash_id.toFixed(2)}x</b>\n✅ Probability: <b>1/${
-            element.round_max - element.dist_temp
-        }</b>  |  <b>${parseFloat(prob.toFixed(2))}</b>%\n`;
-    }
+export function sendMessage(message) {
     id_chats.forEach((element) =>
         bot.telegram.sendMessage(element, message, { parse_mode: "HTML" })
     );
@@ -28,6 +19,14 @@ bot.command("start", (ctx) => {
         console.log(id_chats);
         ctx.reply(`Hi, ${ctx.chat.first_name}! Welcome to Crash Notifier.`);
     } else console.log("Usuário já registrado!");
+});
+
+bot.command("settings", (ctx) => {
+    ctx.reply(`Hi, ${ctx.chat.first_name}! Come to for configurations`);
+});
+
+bot.command("help", (ctx) => {
+    ctx.reply(`Oh, sorry ${ctx.chat.first_name}! Need Help?`);
 });
 
 bot.launch();

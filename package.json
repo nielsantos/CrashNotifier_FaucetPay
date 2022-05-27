@@ -1,6 +1,6 @@
 {
     "name": "crashnotifier_faucetpay",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Automated application that will notify the probability of winning at a given Crash Point.",
     "main": "index.js",
     "type": "module",
